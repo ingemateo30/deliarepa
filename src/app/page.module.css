@@ -17,52 +17,78 @@
 /* Hero Section */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #3b82f6 100%);
   color: white;
-  padding: 50px 25px 40px;
+  padding: 60px 25px 50px;
   text-align: center;
   overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  /* Imagen de fondo principal */
+  background-image: url('/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.heroBackground {
+/* Overlay oscuro para legibilidad del texto */
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Fallback con gradiente si no hay imagen */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 30%, #dc2626 70%, #ef4444 100%);
+  z-index: -1;
 }
 
 .heroContent {
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  width: 100%;
 }
 
 .logoContainer {
   position: relative;
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.3);
   margin: 0 auto;
   transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.9);
 }
 
 .logo:hover {
   transform: scale(1.05);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 .premiumBadge {
@@ -71,69 +97,161 @@
   right: -8px;
   background: linear-gradient(45deg, var(--accent-gold), #fbbf24);
   color: var(--text-primary);
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 6px 12px;
+  border-radius: 15px;
   font-size: 0.7em;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: var(--shadow-md);
-  animation: premiumPulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 4px 15px rgba(245, 158, 11, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  animation: premiumPulse 3s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 @keyframes premiumPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4), 0 0 20px rgba(255, 255, 255, 0.3); }
+  50% { transform: scale(1.1); box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6), 0 0 30px rgba(255, 255, 255, 0.5); }
+}
+
+.brandContent {
+  position: relative;
+  z-index: 2;
 }
 
 .brandTitle {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5em;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
-  animation: slideUp 0.8s ease 0.2s both;
+  font-size: 3.2em;
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: -2px;
+  text-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  animation: titleGlow 4s ease-in-out infinite alternate;
 }
 
-.brandSubtitle {
+.brandPrimary {
+  display: inline-block;
+  color: #FFFFFF;
+  text-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  animation: slideInLeft 1s ease 0.2s both;
+}
+
+.brandSecondary {
+  display: inline-block;
+  color: #FFD700;
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 1s ease 0.4s both;
+}
+
+@keyframes titleGlow {
+  0% { 
+    text-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% { 
+    text-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 40px rgba(255, 215, 0, 0.4);
+  }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px) rotate(-5deg); opacity: 0; }
+  to { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px) rotate(5deg); opacity: 0; }
+  to { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+.brandSlogan {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #FFD700;
+  margin-bottom: 8px;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(255, 215, 0, 0.5);
+  animation: slideUp 0.8s ease 0.6s both;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.brandTagline {
+  font-family: 'Inter', sans-serif;
   font-size: 1.1em;
-  font-weight: 600;
-  color: var(--primary-red);
-  margin-bottom: 5px;
-  animation: slideUp 0.8s ease 0.4s both;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  animation: slideUp 0.8s ease 0.8s both;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .brandDescription {
-  font-size: 0.9em;
+  font-size: 1em;
   opacity: 0.9;
-  margin-bottom: 25px;
-  animation: slideUp 0.8s ease 0.6s both;
+  margin-bottom: 30px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.8s ease 1s both;
 }
 
 .businessMetrics {
   display: flex;
   justify-content: center;
   gap: 30px;
-  animation: slideUp 0.8s ease 0.8s both;
+  animation: slideUp 0.8s ease 1.2s both;
 }
 
 .metric {
   text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.metric:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .metricNumber {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 1.5em;
-  font-weight: 800;
-  color: var(--accent-gold);
+  font-size: 1.8em;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
 }
 
 .metricLabel {
   display: block;
-  font-size: 0.8em;
-  opacity: 0.8;
-  margin-top: 2px;
+  font-size: 0.85em;
+  opacity: 0.9;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Navigation */
@@ -685,7 +803,7 @@
   50% { transform: scale(1.05); }
 }
 
-/* Footer */
+/* Footer - ESTILOS ORIGINALES Y MEJORADOS */
 .footer {
   background: white;
   border-top: 1px solid var(--border-light);
@@ -707,6 +825,7 @@
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .footerFeatures span {
@@ -716,6 +835,98 @@
   border-radius: 16px;
   font-size: 0.8em;
   font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.footerFeatures span:hover {
+  background: rgba(30, 64, 175, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* NUEVOS ESTILOS PARA EL FOOTER MEJORADO */
+
+/* Sección adicional para información extra */
+.footerExtras {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* Contacto rápido - versión compacta */
+.footerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.contactPhone,
+.contactLocation {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.contactPhone {
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* Prueba social - versión compacta */
+.footerSocial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.stars {
+  font-size: 1em;
+}
+
+.reviewText {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Horarios compactos */
+.footerHours {
+  text-align: center;
+  background: rgba(30, 64, 175, 0.1);
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 64, 175, 0.2);
+}
+
+.hoursTitle {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Footer bottom */
+.footerBottom {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-light);
+}
+
+.footerCopy {
+  margin: 0;
+  font-size: 0.75em;
+  color: var(--text-secondary);
+  opacity: 0.8;
 }
 
 /* Animations */
@@ -742,19 +953,38 @@
 /* Responsive Design */
 @media (max-width: 480px) {
   .hero {
-    padding: 40px 20px 35px;
+    padding: 50px 20px 40px;
+    min-height: 350px;
   }
 
   .brandTitle {
-    font-size: 2.2em;
+    font-size: 2.6em;
+  }
+
+  .brandSlogan {
+    font-size: 1.3em;
+  }
+
+  .brandTagline {
+    font-size: 1em;
   }
 
   .businessMetrics {
     gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    padding: 12px 16px;
+    min-width: 80px;
   }
 
   .metricNumber {
-    font-size: 1.3em;
+    font-size: 1.6em;
+  }
+
+  .metricLabel {
+    font-size: 0.8em;
   }
 
   .navigation {
@@ -827,6 +1057,30 @@
     flex-direction: column;
     gap: 8px;
   }
+
+  /* Responsive para los elementos adicionales del footer */
+  .footerExtras {
+    gap: 12px;
+    margin: 15px 0;
+  }
+
+  .footerContact,
+  .footerSocial,
+  .footerHours {
+    padding: 8px 12px;
+  }
+
+  .footerSocial {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contactPhone,
+  .contactLocation,
+  .reviewText,
+  .hoursTitle {
+    font-size: 0.8em;
+  }
 }
 
 @media (max-width: 360px) {
@@ -869,6 +1123,25 @@
   .footer {
     padding: 20px 15px;
   }
+
+  /* Responsive extremo para footer */
+  .footerExtras {
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .footerContact,
+  .footerSocial,
+  .footerHours {
+    padding: 6px 10px;
+  }
+
+  .contactPhone,
+  .contactLocation,
+  .reviewText,
+  .hoursTitle {
+    font-size: 0.75em;
+  }
 }
 
 /* High-end visual enhancements */
@@ -890,8 +1163,6 @@
   background: linear-gradient(180deg, transparent, rgba(249, 250, 251, 0.3));
 }
 
-
-
 /* Enhanced focus states for accessibility */
 .navTab:focus,
 .orderButton:focus,
@@ -905,4 +1176,21 @@
 /* Loading state */
 .container:not(.loaded) * {
   animation-play-state: paused;
+}
+
+/* Animaciones para footer */
+.footerExtras > * {
+  animation: slideUp 0.6s ease forwards;
+}
+
+.footerExtras > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.footerExtras > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.footerExtras > *:nth-child(3) {
+  animation-delay: 0.3s;
 }

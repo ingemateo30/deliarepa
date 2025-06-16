@@ -17,7 +17,7 @@ interface Product {
 export default function DeliarepaPremiumApp() {
   const [activeTab, setActiveTab] = useState('featured')
   const [isLoaded, setIsLoaded] = useState(false)
-  const carouselRef = useRef<HTMLDivElement>(null)
+ const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsLoaded(true)
@@ -154,7 +154,7 @@ export default function DeliarepaPremiumApp() {
   }
 
   const openLocation = () => {
-    window.open('https://maps.app.goo.gl/jbp61sEFVeu5F8wbA', '_blank')
+    window.open('https://maps.google.com/?q=6.2476,-75.5658', '_blank')
   }
 
   const callDirect = () => {
@@ -173,12 +173,13 @@ export default function DeliarepaPremiumApp() {
         <div className={styles.heroContent}>
           <div className={styles.logoContainer}>
             <div className={styles.logo}>
-              <img
+              <Image
                 src="/logo-deliarepa.png"
                 alt="DELIAREPA"
-                width={160}
-                height={160}
+                width={180}
+                height={180}
                 style={{ borderRadius: '50%', objectFit: 'cover' }}
+        
               />
             </div>
           </div>
@@ -259,6 +260,7 @@ export default function DeliarepaPremiumApp() {
                       {product.isSpecial && (
                         <div className={styles.specialBadge}>Especial</div>
                       )}
+                      
                     </div>
                     
                     <div className={styles.productInfo}>
@@ -371,7 +373,7 @@ export default function DeliarepaPremiumApp() {
                 <div className={styles.contactIcon}>📍</div>
                 <div className={styles.contactInfo}>
                   <h4>Ubicación</h4>
-                  <p>carrera 7 numero 16-50, San Gil</p>
+                  <p>Calle Principal #123, Centro</p>
                   <span className={styles.contactAction}>Ver en mapa</span>
                 </div>
               </div>
@@ -390,12 +392,12 @@ export default function DeliarepaPremiumApp() {
               <h3>Horarios de Atención</h3>
               <div className={styles.hoursGrid}>
                 <div className={styles.hoursItem}>
-                  <span>Lunes - Viernes</span>
-                  <span>6:00 AM - 10:00 PM</span>
+                  <span>Lunes - Sábado</span>
+                  <span>6:00 AM - 1:00 PM y 4:00 PM - 8:00 PM</span>
                 </div>
                 <div className={styles.hoursItem}>
-                  <span>Sábados - Domingos</span>
-                  <span>6:00 AM - 10:00 PM</span>
+                  <span>Domingos y festivos</span>
+                  <span>8:00 AM - 12:00 M</span>
                 </div>
               </div>
             </div>
@@ -411,16 +413,36 @@ export default function DeliarepaPremiumApp() {
       </button>
 
       {/* Bottom Info */}
-      <footer className={styles.footer}>
-        <div className={styles.footerContent}>
-          <p className={styles.footerBrand}>DELIAREPA - Tradición y calidad artesanal</p>
-          <div className={styles.footerFeatures}>
-            <span>🚚 Domicilios</span>
-            <span>💳 Todos los pagos</span>
-            <span>🌱 100% Natural</span>
+     <footer className={styles.footer}>
+      <div className={styles.footerContent}>
+        {/* Sección principal de marca */}
+        <div className={styles.footerBrandSection}>
+          <p className={styles.footerBrand}>DELIAREPA</p>
+          <p className={styles.footerSubtitle}>Tradición y calidad artesanal</p>
+        </div>
+
+        {/* Características principales */}
+        <div className={styles.footerFeatures}>
+          <span className={styles.footerFeature}>🚚 Envíos Nacionales</span>
+          <span className={styles.footerFeature}>💳 Todos los pagos</span>
+          <span className={styles.footerFeature}>🌱 100% Natural</span>
+        </div>
+        {/* Horarios de atención */}
+        <div className={styles.footerHours}>
+          <p className={styles.hoursTitle}>Horarios de Atención</p>
+          <div className={styles.hoursInfo}>
+            <span>Lun - Sáb: 6:00 AM - 1:00 PM y 4:00 PM - 8:00 PM </span>
+            <br />
+            <span>Dom y festivos: 8:00 AM - 12:00 M</span>
           </div>
         </div>
-      </footer>
+
+        {/* Footer bottom */}
+        <div className={styles.footerBottom}>
+          <p className={styles.footerCopy}>© 2025 DELIAREPA - Hecho con ❤️ en Colombia</p>
+        </div>
+      </div>
+    </footer>
     </div>
   )
 }
