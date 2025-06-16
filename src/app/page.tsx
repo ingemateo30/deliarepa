@@ -39,7 +39,7 @@ export default function DeliarepaPremiumApp() {
       price: '$7,000',
       description: 'Arepas hechas naturalmente de plátano maduro con queso, brindan saciedad y ayudan al transito intestinal. Son una deliciosa variación de la arepa tradicional con un toque de dulce que proviene del plátano maduro.',
       category: '',
-      image: '/maduro.png',
+      image: '/MADURO.png',
       isSpecial: false
     },
     {
@@ -48,7 +48,7 @@ export default function DeliarepaPremiumApp() {
       price: '$7,000',
       description: 'las arepas de maíz peto con semillas de linaza y chía son naturalmente  una versión saludable y nutritiva de nuestra arepa, ya que las semillas de linaza y chía son ricas en ácidos grasos, omega 3, fibra y antioxidantes y al combinarse el resultado es una arepa más densa, rica en nutrientes y con un sabor único',
       category: '',
-      image: '/semillas.png',
+      image: '/SEMILLAS.png',
       isSpecial: false
     },
     {
