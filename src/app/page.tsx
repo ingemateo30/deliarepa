@@ -154,7 +154,7 @@ export default function DeliarepaPremiumApp() {
   }
 
   const openLocation = () => {
-    window.open('https://maps.google.com/?q=6.2476,-75.5658', '_blank')
+    window.open('https://maps.app.goo.gl/jbp61sEFVeu5F8wbA', '_blank')
   }
 
   const callDirect = () => {
@@ -371,7 +371,7 @@ export default function DeliarepaPremiumApp() {
                 <div className={styles.contactIcon}>📍</div>
                 <div className={styles.contactInfo}>
                   <h4>Ubicación</h4>
-                  <p>Calle Principal #123, Centro</p>
+                  <p>carrera 7 numero 16-50, San Gil</p>
                   <span className={styles.contactAction}>Ver en mapa</span>
                 </div>
               </div>
