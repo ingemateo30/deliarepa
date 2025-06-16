@@ -53,7 +53,7 @@ export default function DeliarepaPremiumApp() {
     },
     {
       id: 'tradicional',
-      name: 'Arepa Tradicional Artesanal',
+      name: 'Arepa Tradicional Santandereana',
       price: '$4,000',
       description: 'El sabor auténtico de la tradición colombiana con queso premium.',
       category: '',
@@ -64,36 +64,44 @@ export default function DeliarepaPremiumApp() {
   const allProducts: Product[] = [
     ...featuredProducts,
     {
-      id: 'pollo',
-      name: 'Arepa Gourmet de Pollo',
-      price: '$7,000',
+      id: 'carne',
+      name: 'Arepa Gourmet de carne',
+      price: '$9,000',
       description: 'Pechuga marinada en especias secretas, cocción artesanal perfecta.',
       category: 'Gourmet',
       image: '/CARNE 1.png'
     },
     {
-      id: 'carne',
-      name: 'Arepa Selecta de Carne',
+      id: 'hawaiana',
+      name: 'Arepa hawiana',
       price: '$9,000',
       description: 'Carne selecta cocida a fuego lento, textura perfecta y sabores profundos.',
       category: 'Premium',
       image: '/HAWAIANA.png'
     },
     {
-      id: 'hawaiana',
-      name: 'Arepa Tropical Fusion',
+      id: 'jaomyqueso',
+      name: 'Arepa jamon y queso',
       price: '$7,000',
       description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
       category: 'Especiales',
       image: '/JAMON Y QUESO.png'
     },
        {
-      id: 'hawaiana',
-      name: 'Arepa Tropical Fusion',
+      id: 'pollo',
+      name: 'Arepa pollo',
       price: '$7,000',
       description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
       category: 'Especiales',
       image: '/SOLO POLLO.png'
+    },
+    {
+      id: 'mixta',
+      name: 'Arepa mixta de pollo y carne',
+      price: '$9,000',
+      description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
+      category: 'Especiales',
+      image: '/MIXTAA.png'
     }
   ]
 
