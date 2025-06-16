@@ -29,7 +29,7 @@ export default function DeliarepaPremiumApp() {
       name: 'Arepa de Yuca libre de gluten',
       price: '$7,000',
       description: 'Arepas de yuca con queso, hechas naturalmente de yuca libre de gluten, rica en fibra fuente de energía y brinda mayor sensación de saciedad.',
-      category: '',
+      category: 'Premium',
       image: '/YUCAA.png',
       isSpecial: false
     },
@@ -38,7 +38,7 @@ export default function DeliarepaPremiumApp() {
       name: 'Arepa de Plátano Maduro',
       price: '$7,000',
       description: 'Arepas hechas naturalmente de plátano maduro con queso, brindan saciedad y ayudan al transito intestinal. Son una deliciosa variación de la arepa tradicional con un toque de dulce que proviene del plátano maduro.',
-      category: '',
+      category: 'Premium',
       image: '/MADURO.png',
       isSpecial: false
     },
@@ -47,7 +47,7 @@ export default function DeliarepaPremiumApp() {
       name: 'Arepa Nutritiva con linaza y chía',
       price: '$7,000',
       description: 'las arepas de maíz peto con semillas de linaza y chía son naturalmente  una versión saludable y nutritiva de nuestra arepa, ya que las semillas de linaza y chía son ricas en ácidos grasos, omega 3, fibra y antioxidantes y al combinarse el resultado es una arepa más densa, rica en nutrientes y con un sabor único',
-      category: '',
+      category: 'Premium',
       image: '/SEMILLAS.png',
       isSpecial: false
     },
@@ -55,8 +55,8 @@ export default function DeliarepaPremiumApp() {
       id: 'tradicional',
       name: 'Arepa Tradicional Santandereana',
       price: '$4,000',
-      description: 'El sabor auténtico de la tradición colombiana con queso premium.',
-      category: '',
+      description: 'Deliciosa arepa de maíz pelado, se caracteriza por su sabor a maíz pronunciado y textura suave.',
+      category: 'Premium',
       image: '/MAIZ PELADO 1.png',
     }
   ]
@@ -67,41 +67,57 @@ export default function DeliarepaPremiumApp() {
       id: 'carne',
       name: 'Arepa Gourmet de carne',
       price: '$9,000',
-      description: 'Pechuga marinada en especias secretas, cocción artesanal perfecta.',
-      category: 'Gourmet',
+      description: 'La combinación de nuestra arepa con carne desmechada se convierte en una verdadera delicia, ideales para el desayuno o brunch, para cenar o degustar a la hora que desees.',
+      category: 'Especial',
       image: '/CARNE 1.png'
     },
     {
       id: 'hawaiana',
       name: 'Arepa hawiana',
       price: '$9,000',
-      description: 'Carne selecta cocida a fuego lento, textura perfecta y sabores profundos.',
-      category: 'Premium',
+      description: 'Arepas precocidas rellenas con piña calada, jamón de cerdo y queso Mozzarella',
+      category: 'Especial',
       image: '/HAWAIANA.png'
     },
     {
       id: 'jaomyqueso',
       name: 'Arepa jamon y queso',
       price: '$7,000',
-      description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
-      category: 'Especiales',
+      description: 'Arepa rellena con jamón y queso mozzarella que gratina y derrite. Ahorra tiempo con una comida completa. Te cuadra el desayuno, el antojito y la cena.',
+      category: 'Tradicional',
       image: '/JAMON Y QUESO.png'
     },
        {
       id: 'pollo',
       name: 'Arepa pollo',
       price: '$7,000',
-      description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
-      category: 'Especiales',
+      description: 'arepa rellena de pollo, combina la suavidad de la arepa con un delicioso y generoso relleno de pechuga de pollo jugosa',
+      category: 'Especial',
       image: '/SOLO POLLO.png'
     },
     {
       id: 'mixta',
       name: 'Arepa mixta de pollo y carne',
       price: '$9,000',
-      description: 'Piña fresca, jamón ahumado premium y queso artesanal.',
-      category: 'Especiales',
+      description: 'nuestras arepas admiten muchísimos rellenos, la arepa mixta es una de nuestras favoritas, rellena de carne de res y pechuga de pollo desmechada, jamón y queso.',
+      category: 'Especial',
       image: '/MIXTAA.png'
+    },
+     {
+      id: 'queso',
+      name: 'Arepa de queso',
+      price: '$4,000',
+      description: 'arepas rellenas de queso son crujientes y doradas por fuera, y por dentro tienen un relleno suave de queso derretido que las hace totalmente irresistibles.',
+      category: 'Tradicional',
+      image: '/QUESO.png'
+    },
+     {
+      id: 'queso',
+      name: 'Arepa de doble queso',
+      price: '5,000',
+      description: 'Las arepas doble queso son crujientes por fuera y suaves por dentro, con un relleno abundante de queso derretido que se extiende con cada mordisco.',
+      category: 'Tradicional',
+      image: '/DOBLE QUESO 2.png'
     }
   ]
 
@@ -181,7 +197,7 @@ export default function DeliarepaPremiumApp() {
               <span className={styles.metricLabel}>Rating</span>
             </div>
             <div className={styles.metric}>
-              <span className={styles.metricNumber}>15+</span>
+              <span className={styles.metricNumber}>10+</span>
               <span className={styles.metricLabel}>Variedades</span>
             </div>
           </div>
@@ -243,7 +259,6 @@ export default function DeliarepaPremiumApp() {
                       {product.isSpecial && (
                         <div className={styles.specialBadge}>Especial</div>
                       )}
-                      <div className={styles.categoryTag}>{product.category}</div>
                     </div>
                     
                     <div className={styles.productInfo}>
