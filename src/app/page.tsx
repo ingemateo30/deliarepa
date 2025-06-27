@@ -17,7 +17,7 @@ interface Product {
 export default function DeliarepaPremiumApp() {
   const [activeTab, setActiveTab] = useState('featured')
   const [isLoaded, setIsLoaded] = useState(false)
- const carouselRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsLoaded(true)
@@ -87,7 +87,7 @@ export default function DeliarepaPremiumApp() {
       category: 'Tradicional',
       image: '/JAMON Y QUESO.png'
     },
-       {
+    {
       id: 'pollo',
       name: 'Arepa pollo',
       price: '$7,000',
@@ -103,7 +103,7 @@ export default function DeliarepaPremiumApp() {
       category: 'Especial',
       image: '/MIXTAA.png'
     },
-     {
+    {
       id: 'queso',
       name: 'Arepa de queso',
       price: '$4,000',
@@ -111,7 +111,7 @@ export default function DeliarepaPremiumApp() {
       category: 'Tradicional',
       image: '/QUESO.png'
     },
-     {
+    {
       id: 'queso',
       name: 'Arepa de doble queso',
       price: '5,000',
@@ -124,10 +124,10 @@ export default function DeliarepaPremiumApp() {
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
       const scrollAmount = 320
-      const newScrollLeft = direction === 'left' 
+      const newScrollLeft = direction === 'left'
         ? carouselRef.current.scrollLeft - scrollAmount
         : carouselRef.current.scrollLeft + scrollAmount
-      
+
       carouselRef.current.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth'
@@ -138,18 +138,18 @@ export default function DeliarepaPremiumApp() {
   const openWhatsApp = (product?: Product) => {
     const phone = '573173450555'
     let message = 'Hola DELIAREPA 👋\n\n'
-    
+
     if (product) {
       message += `Me interesa la ${product.name} (${product.price})\n\n`
     }
-    
+
     message += 'Quisiera información sobre:\n' +
       '• Disponibilidad\n' +
       '• Tiempo de entrega\n' +
       '• Opciones de domicilio\n' +
       '• Métodos de pago\n\n' +
       'Gracias por su atención.'
-    
+
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
@@ -179,15 +179,15 @@ export default function DeliarepaPremiumApp() {
                 width={180}
                 height={180}
                 style={{ borderRadius: '50%', objectFit: 'cover' }}
-        
+
               />
             </div>
           </div>
-          
+
           <h1 className={styles.brandTitle}>DELIAREPA</h1>
           <p className={styles.brandSubtitle}>Alimenta tu paladar</p>
           <p className={styles.brandDescription}>Tradición artesanal colombiana desde 2001</p>
-          
+
           <div className={styles.businessMetrics}>
             <div className={styles.metric}>
               <span className={styles.metricNumber}>500+</span>
@@ -207,19 +207,19 @@ export default function DeliarepaPremiumApp() {
 
       {/* Navigation Tabs */}
       <nav className={styles.navigation}>
-        <button 
+        <button
           className={`${styles.navTab} ${activeTab === 'featured' ? styles.active : ''}`}
           onClick={() => setActiveTab('featured')}
         >
           Destacados
         </button>
-        <button 
+        <button
           className={`${styles.navTab} ${activeTab === 'menu' ? styles.active : ''}`}
           onClick={() => setActiveTab('menu')}
         >
           Menú Completo
         </button>
-        <button 
+        <button
           className={`${styles.navTab} ${activeTab === 'contact' ? styles.active : ''}`}
           onClick={() => setActiveTab('contact')}
         >
@@ -235,17 +235,17 @@ export default function DeliarepaPremiumApp() {
               <h2>Nuestras Especialidades</h2>
               <p>Descubre los sabores que nos hacen únicos</p>
             </div>
-            
+
             {/* Product Carousel */}
             <div className={styles.carouselContainer}>
-              <button 
+              <button
                 className={`${styles.carouselButton} ${styles.prev}`}
                 onClick={() => scrollCarousel('left')}
                 aria-label="Anterior"
               >
                 ←
               </button>
-              
+
               <div className={styles.carousel} ref={carouselRef}>
                 {featuredProducts.map((product) => (
                   <div key={product.id} className={styles.productCard}>
@@ -260,15 +260,15 @@ export default function DeliarepaPremiumApp() {
                       {product.isSpecial && (
                         <div className={styles.specialBadge}>Especial</div>
                       )}
-                      
+
                     </div>
-                    
+
                     <div className={styles.productInfo}>
                       <h3 className={styles.productName}>{product.name}</h3>
                       <p className={styles.productDescription}>{product.description}</p>
                       <div className={styles.productFooter}>
                         <span className={styles.productPrice}>{product.price}</span>
-                        <button 
+                        <button
                           className={styles.orderButton}
                           onClick={() => openWhatsApp(product)}
                         >
@@ -279,8 +279,8 @@ export default function DeliarepaPremiumApp() {
                   </div>
                 ))}
               </div>
-              
-              <button 
+
+              <button
                 className={`${styles.carouselButton} ${styles.next}`}
                 onClick={() => scrollCarousel('right')}
                 aria-label="Siguiente"
@@ -290,7 +290,7 @@ export default function DeliarepaPremiumApp() {
             </div>
 
             {/* Quick Actions */}
-            <div className={styles.quickActions}> 
+            <div className={styles.quickActions}>
               <button className={styles.secondaryAction} onClick={() => setActiveTab('menu')}>
                 Ver Menú Completo
               </button>
@@ -304,7 +304,7 @@ export default function DeliarepaPremiumApp() {
               <h2>Menú Completo</h2>
               <p>Todas nuestras creaciones artesanales</p>
             </div>
-            
+
             <div className={styles.menuGrid}>
               {allProducts.map((product) => (
                 <div key={product.id} className={styles.menuItem}>
@@ -325,7 +325,7 @@ export default function DeliarepaPremiumApp() {
                     <p className={styles.menuItemDescription}>{product.description}</p>
                     <div className={styles.menuItemFooter}>
                       <span className={styles.menuItemCategory}>{product.category}</span>
-                      <button 
+                      <button
                         className={styles.menuOrderButton}
                         onClick={() => openWhatsApp(product)}
                       >
@@ -345,12 +345,12 @@ export default function DeliarepaPremiumApp() {
               <h2>Contáctanos</h2>
               <p>Estamos aquí para servirte</p>
             </div>
-            
+
             <div className={styles.contactOptions}>
               <div className={styles.contactCard} onClick={() => openWhatsApp()}>
                 <div className={styles.contactIcon}>
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.687"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.687" />
                   </svg>
                 </div>
                 <div className={styles.contactInfo}>
@@ -359,7 +359,7 @@ export default function DeliarepaPremiumApp() {
                   <span className={styles.contactAction}>Enviar mensaje</span>
                 </div>
               </div>
-              
+
               <div className={styles.contactCard} onClick={callDirect}>
                 <div className={styles.contactIcon}>📞</div>
                 <div className={styles.contactInfo}>
@@ -368,16 +368,16 @@ export default function DeliarepaPremiumApp() {
                   <span className={styles.contactAction}>Llamar ahora</span>
                 </div>
               </div>
-              
+
               <div className={styles.contactCard} onClick={openLocation}>
                 <div className={styles.contactIcon}>📍</div>
                 <div className={styles.contactInfo}>
                   <h4>Ubicación</h4>
-                  <p>Calle Principal #123, Centro</p>
+                  <p>Cra 7 #16 - 50, San Gil, Santander, Colombia</p>
                   <span className={styles.contactAction}>Ver en mapa</span>
                 </div>
               </div>
-              
+
               <div className={styles.contactCard} onClick={openInstagram}>
                 <div className={styles.contactIcon}>📸</div>
                 <div className={styles.contactInfo}>
@@ -387,7 +387,7 @@ export default function DeliarepaPremiumApp() {
                 </div>
               </div>
             </div>
-            
+
             <div className={styles.businessHours}>
               <h3>Horarios de Atención</h3>
               <div className={styles.hoursGrid}>
@@ -408,41 +408,41 @@ export default function DeliarepaPremiumApp() {
       {/* Floating Action Button */}
       <button className={styles.fab} onClick={() => openWhatsApp()}>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.687"/>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.687" />
         </svg>
       </button>
 
       {/* Bottom Info */}
-     <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        {/* Sección principal de marca */}
-        <div className={styles.footerBrandSection}>
-          <p className={styles.footerBrand}>DELIAREPA</p>
-          <p className={styles.footerSubtitle}>Tradición y calidad artesanal</p>
-        </div>
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          {/* Sección principal de marca */}
+          <div className={styles.footerBrandSection}>
+            <p className={styles.footerBrand}>DELIAREPA</p>
+            <p className={styles.footerSubtitle}>Tradición y calidad artesanal</p>
+          </div>
 
-        {/* Características principales */}
-        <div className={styles.footerFeatures}>
-          <span className={styles.footerFeature}>🚚 Envíos Nacionales</span>
-          <span className={styles.footerFeature}>💳 Todos los pagos</span>
-          <span className={styles.footerFeature}>🌱 100% Natural</span>
-        </div>
-        {/* Horarios de atención */}
-        <div className={styles.footerHours}>
-          <p className={styles.hoursTitle}>Horarios de Atención</p>
-          <div className={styles.hoursInfo}>
-            <span>Lun - Sáb: 6:00 AM - 1:00 PM y 4:00 PM - 8:00 PM </span>
-            <br />
-            <span>Dom y festivos: 8:00 AM - 12:00 M</span>
+          {/* Características principales */}
+          <div className={styles.footerFeatures}>
+            <span className={styles.footerFeature}>🚚 Envíos Nacionales</span>
+            <span className={styles.footerFeature}>💳 Todos los pagos</span>
+            <span className={styles.footerFeature}>🌱 100% Natural</span>
+          </div>
+          {/* Horarios de atención */}
+          <div className={styles.footerHours}>
+            <p className={styles.hoursTitle}>Horarios de Atención</p>
+            <div className={styles.hoursInfo}>
+              <span>Lun - Sáb: 6:00 AM - 1:00 PM y 4:00 PM - 8:00 PM </span>
+              <br />
+              <span>Dom y festivos: 8:00 AM - 12:00 M</span>
+            </div>
+          </div>
+
+          {/* Footer bottom */}
+          <div className={styles.footerBottom}>
+            <p className={styles.footerCopy}>© 2025 DELIAREPA - Hecho con ❤️ en Colombia</p>
           </div>
         </div>
-
-        {/* Footer bottom */}
-        <div className={styles.footerBottom}>
-          <p className={styles.footerCopy}>© 2025 DELIAREPA - Hecho con ❤️ en Colombia</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   )
 }
